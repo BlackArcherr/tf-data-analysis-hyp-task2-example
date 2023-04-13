@@ -4,6 +4,6 @@ import numpy as np
 import scipy.stats as stats
 chat_id = 474140315 # Ваш chat ID, не меняйте название переменной
 
-def solution(x: np.array, y: np.array) -> bool:    
-    (_, pvalue) = stats.mannwhitneyu(x, y)    
-    return pvalue < 0.01
+def solution(x: np.array, y: np.array) -> bool:
+    a = stats.anderson_ksamp([x, y])
+    return a.pvalue < 0.01
